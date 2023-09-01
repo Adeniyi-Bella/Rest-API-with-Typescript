@@ -1,6 +1,9 @@
 import cors from "cors";
 import express, { Application } from "express";
 import ip from "ip";
+import { Code } from "./enum/code.enum";
+import { Status } from "./enum/status.enum";
+import { HttpResponse } from "./domain/response";
 
 
 export class App {
@@ -22,9 +25,9 @@ export class App {
 
     private routes(): void {
         this.app.use('/patients' , (req, res) => {});
-        this.app.get('/' , (req, res) => res.status(200).send({message: "Server is up and running"}));
+        this.app.get('/' , (_, res) => res.status(Code.OK).send(new HttpResponse(Code.OK, Status.OK, "Welcome to the Patient API v1.0")));
         //other routes
-        this.app.all('*' , (req, res) => res.status(404).send({message: this.ROUTE_NOT_FOUND}));
+        this.app.all('*' , (_, res) => res.status(Code.NOT_FOUND).send(new HttpResponse(Code.NOT_FOUND, Status.NOT_FOUND, this.ROUTE_NOT_FOUND)));
 
     }
 
