@@ -1,11 +1,16 @@
-# Use the official MySQL image
-FROM mysql:latest
-
-# Set environment variables
-ENV MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-ENV MYSQL_DATABASE=${DB_NAME}
-ENV MYSQL_USER=${DB_USER}
-ENV MYSQL_PASSWORD=${DB_PASSWORD}
-
-# Expose the port
-EXPOSE 3306
+#use node as base image
+FROM node:16.20.1 
+#set working directory
+WORKDIR /usr/code
+#copy package.json into working directory
+COPY package.json .
+#install dependencies from package.json
+RUN npm install
+#copy all other files from current directory to working directory
+COPY . .
+#define environment variables
+ENV SERVER_PORT 3000
+#expose port 3000
+EXPOSE $SERVER_PORT
+#run the app i.e npm run start:prod
+CMD ["npm", "run", "start:prod"]

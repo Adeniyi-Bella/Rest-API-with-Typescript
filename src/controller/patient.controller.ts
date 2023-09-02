@@ -11,7 +11,8 @@ import { QUERY } from "../query/patient.query";
 type ResultSet = [RowDataPacket[] | RowDataPacket[][] | OkPacket | OkPacket[] | ResultSetHeader, FieldPacket[]];
 
 //get all patients from DB
-export const getPatients = async (req: Request, res: Response): Promise<Response<Patient[]>> => {
+//in prod, avoid using console to log info. There are better libraries/applications that can be used to achieve the same result
+export const getPatients = async (req: Request, res: Response): Promise<Response<HttpResponse[]>> => {
     console.info(`[${new Date().toLocaleString()}] Incoming ${req.method}${req.originalUrl} Request from ${req.rawHeaders[0]} ${req.rawHeaders[1]}`);
     try{
         //connect to DB
@@ -29,7 +30,7 @@ export const getPatients = async (req: Request, res: Response): Promise<Response
 };
 
 //get single patient from DB
-export const getPatient = async (req: Request, res: Response): Promise<Response<Patient>> => {
+export const getPatient = async (req: Request, res: Response): Promise<Response<HttpResponse>> => {
     console.info(`[${new Date().toLocaleString()}] Incoming ${req.method}${req.originalUrl} Request from ${req.rawHeaders[0]} ${req.rawHeaders[1]}`);
     try{
         const pool = await connection();
@@ -49,7 +50,7 @@ export const getPatient = async (req: Request, res: Response): Promise<Response<
     }    
 };
 
-export const createPatient = async (req: Request, res: Response): Promise<Response<Patient>> => {
+export const createPatient = async (req: Request, res: Response): Promise<Response<HttpResponse>> => {
     console.info(`[${new Date().toLocaleString()}] Incoming ${req.method}${req.originalUrl} Request from ${req.rawHeaders[0]} ${req.rawHeaders[1]}`);
     let patient: Patient = { ...req.body };
     try{
@@ -65,7 +66,7 @@ export const createPatient = async (req: Request, res: Response): Promise<Respon
     }    
 };
 
-export const updatePatient = async (req: Request, res: Response): Promise<Response<Patient>> => {
+export const updatePatient = async (req: Request, res: Response): Promise<Response<HttpResponse>> => {
     console.info(`[${new Date().toLocaleString()}] Incoming ${req.method}${req.originalUrl} Request from ${req.rawHeaders[0]} ${req.rawHeaders[1]}`);
     let patient: Patient = { ...req.body };
     try{
@@ -86,7 +87,7 @@ export const updatePatient = async (req: Request, res: Response): Promise<Respon
     }    
 };
 
-export const deletePatient = async (req: Request, res: Response): Promise<Response<Patient>> => {
+export const deletePatient = async (req: Request, res: Response): Promise<Response<HttpResponse>> => {
     console.info(`[${new Date().toLocaleString()}] Incoming ${req.method}${req.originalUrl} Request from ${req.rawHeaders[0]} ${req.rawHeaders[1]}`);
     try{
         const pool = await connection();
