@@ -33,6 +33,6 @@ Build a simple rest api using typescript and deploy to AWS.
 8. Download docker and docker-compose on the remote machine by following the steps [here](https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/).
 9. Once docker is downloaded, you can either run git clone https://github.com/Adeniyi-Bella/Rest-API-with-Typescript.git to clone the repo or just copy the file directly using the scp command.
 10. run docker-compose build and docker-compose up to build and start all services
-11. The app is available on <Public IPv4 address>:3000. You can start testing.
+11. The app is available on ```<Public IPv4 address>:3000```. You can start testing.
 
 
