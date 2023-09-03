@@ -28,7 +28,7 @@ Build a simple rest api using typescript and deploy to AWS.
 - Keypair login: This is necessary for signing into our virtual machine remotely.
 4. Once every detail has been filled, launch the instance.
 5. Wait for the instance to start running.
-6. run ```chmod 400 <typescript.pem>``` from the terminal to set the permission for your private key file. This file was downloaded while creating an EC2 instance from AWS.
+6. run ```chmod 400 <your private key file>``` from the terminal to set the permission for your private key file. This file was downloaded while creating an EC2 instance from AWS.
 7. Log into the remote machine using ```ssh -i typescript.pem ec2-user@<Public IPv4 address>```
 8. Download docker and docker-compose on the remote machine by following the steps [here](https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/).
 9. Once docker is downloaded, you can either run git clone https://github.com/Adeniyi-Bella/Rest-API-with-Typescript.git to clone the repo or just copy the file directly using the scp command.
