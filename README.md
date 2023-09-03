@@ -16,9 +16,10 @@ Build a simple rest api using typescript and deploy to AWS.
 
 1. clone the repo
 2. change directory into cloned repo ```cd Rest-API-with-Typescript```
-3. run ```docker-compose build``` to build images for all the services (backend, database).
-4. run ```docker-compose up``` to start all the services.
-5. The app is available on localhost:3000. You can start testing.
+3. run ```docker-compose build``` to build images for services (backend, database).
+4. run ```docker-compose up``` to start the services.
+5. The app is available on localhost:3000. You can start testing. with postman for example.
+6. To test the frontend app, cd into frontend directory and run ```npm i, and ng serve```. The frontend would be available on localhost:4200
 
 ### Deploying to AWS
 1. Create a free account on AWS
@@ -35,4 +36,6 @@ Build a simple rest api using typescript and deploy to AWS.
 10. run docker-compose build and docker-compose up to build and start all services
 11. The app is available on ```<Public IPv4 address>:3000```. You can start testing.
 
+### Possible improvement
+1. The api is not protected. So authenticating and authorizing users should be considered in production.
 
